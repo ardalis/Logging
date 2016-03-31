@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{259C6727-C9DC-4139-83B7-F91653B12CBB}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Ardalis.Logging", "src\Ardalis.Logging\Ardalis.Logging.xproj", "{14BC21F5-BEF9-4F83-98FE-D520B4552AC8}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleLoggerSample", "samples\ConsoleLoggerSample\ConsoleLoggerSample.xproj", "{B9B0898F-776B-4D01-8EEE-9B622EEC3B90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43D67FAC-8545-4086-BC54-01F0B34D9269}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

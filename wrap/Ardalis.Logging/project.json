@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "bin": {
+        "assembly": "../../src/artifacts/bin/Ardalis.Logging/Debug/net451/Ardalis.Logging.dll",
+        "pdb": "../../src/artifacts/bin/Ardalis.Logging/Debug/net451/Ardalis.Logging.pdb"
+      }
+    },
+    "dnx451": {
+      "bin": {
+        "assembly": "../../src/artifacts/bin/Ardalis.Logging/Debug/dnx451/Ardalis.Logging.dll",
+        "pdb": "../../src/artifacts/bin/Ardalis.Logging/Debug/dnx451/Ardalis.Logging.pdb"
+      }
+    }
+  }
+}
