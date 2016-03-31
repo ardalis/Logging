@@ -38,3 +38,10 @@ public bool IsPrimeOptimized(int number)
     }
 }
 ```
+
+## Output
+Use any lambda that takes a string. You can use Log.Information() here, or Console.WriteLine(), etc.
+```
+CountLogger.DumpResults(Console.WriteLine);
+```
+Run the console application in the sample folder to see sample output.
