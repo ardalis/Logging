@@ -9,7 +9,7 @@ Example Usage:
 ```
 public static bool IsDivisibleBy(int candidate, int divisor)
 {
-    using (new CountLogger.DisposableStopwatch(nameof(IsDivisibleBy), CountLogger.AddDuration))
+    using (new CountLogger.DisposableStopwatch(CountLogger.AddDuration))
     {
         return candidate % divisor == 0;
     }
@@ -17,6 +17,8 @@ public static bool IsDivisibleBy(int candidate, int divisor)
 ```
 
 ## try...finally
+
+Wrap the body of the method you want to measure in a try...finally block and start a timer at the start of the method:
 
 ```
 public bool IsPrimeOptimized(int number)
@@ -34,14 +36,17 @@ public bool IsPrimeOptimized(int number)
     finally
     {
         timer.Stop();
-        CountLogger.AddDuration(nameof(IsPrimeOptimized), timer.ElapsedMilliseconds);
+        CountLogger.AddDuration(timer.ElapsedMilliseconds);
     }
 }
 ```
 
 ## Output
+
 Use any lambda that takes a string. You can use Log.Information() here, or Console.WriteLine(), etc.
+
 ```
 CountLogger.DumpResults(Console.WriteLine);
 ```
+
 Run the console application in the sample folder to see sample output.
