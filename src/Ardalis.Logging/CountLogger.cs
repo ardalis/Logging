@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Ardalis.Logging
 {
@@ -11,7 +12,8 @@ namespace Ardalis.Logging
     {
         private static readonly Dictionary<string, MethodStats> _countLog = new Dictionary<string, MethodStats>();
 
-        public static void AddDuration(string methodName, long duration)
+        public static void AddDuration(long duration,
+            [CallerMemberName] string methodName = "Unknown Method")
         {
             if (!_countLog.ContainsKey(methodName))
             {
@@ -26,9 +28,10 @@ namespace Ardalis.Logging
             }
         }
 
-        public static void AddDuration(string methodName, TimeSpan duration)
+        public static void AddDuration(TimeSpan duration,
+            [CallerMemberName] string methodName = "Unknown Method")
         {
-            AddDuration(methodName, (long)duration.TotalMilliseconds);
+            AddDuration((long)duration.TotalMilliseconds, methodName);
         }
 
         private class MethodStats
@@ -67,9 +70,10 @@ namespace Ardalis.Logging
         {
             private readonly Stopwatch _sw;
             private readonly string _methodName;
-            private readonly Action<string, TimeSpan> f;
+            private readonly Action<TimeSpan, string> f;
 
-            public DisposableStopwatch(string methodName, Action<string, TimeSpan> f)
+            public DisposableStopwatch(Action<TimeSpan, string> f, 
+                [CallerMemberName] string methodName = "Unkown Method")
             {
                 _methodName = methodName;
                 this.f = f;
@@ -79,7 +83,7 @@ namespace Ardalis.Logging
             public void Dispose()
             {
                 _sw.Stop();
-                f(_methodName, _sw.Elapsed);
+                f(_sw.Elapsed, _methodName);
             }
         }
     }

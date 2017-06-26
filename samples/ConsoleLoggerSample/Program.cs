@@ -42,7 +42,7 @@ namespace ConsoleLoggerSample
             finally
             {
                 timer.Stop();
-                CountLogger.AddDuration(nameof(IsPrimeNaive), timer.ElapsedMilliseconds);
+                CountLogger.AddDuration(timer.ElapsedMilliseconds);
             }
         }
         public bool IsPrimeOptimized(int number)
@@ -60,13 +60,13 @@ namespace ConsoleLoggerSample
             finally
             {
                 timer.Stop();
-                CountLogger.AddDuration(nameof(IsPrimeOptimized), timer.ElapsedMilliseconds);
+                CountLogger.AddDuration(timer.ElapsedMilliseconds);
             }
         }
 
         public static bool IsDivisibleBy(int candidate, int divisor)
         {
-            using (new CountLogger.DisposableStopwatch(nameof(IsDivisibleBy), CountLogger.AddDuration))
+            using (new CountLogger.DisposableStopwatch(CountLogger.AddDuration))
             {
                 return candidate % divisor == 0;
             }
